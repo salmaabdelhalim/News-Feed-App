@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView, ActivityIndicator, Image, FlatList} from 'rea
 import { useNavigation, useTheme } from '@react-navigation/native';
 import SearchBar from "react-native-dynamic-search-bar";
 import {get} from '../axios/index'
+import { useTranslation } from 'react-i18next';
 
 let url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=d0d291e01edd417c8968b8c120d96a91'
 
@@ -17,6 +18,7 @@ const AllData = () =>  {
 
   const {navigate} = useNavigation();
   const colors = useTheme().colors;
+  let [t, i18n] = useTranslation();
   
   const getData = useCallback(
     async function () {
@@ -66,7 +68,7 @@ const AllData = () =>  {
 
       <SearchBar
         style={{ alignSelf:'center', margin:10 }}
-        placeholder="Search"
+        placeholder={t("Search")}
         onClear={() => Search('')}
         onCancel={() => Search('')}
         value={query}

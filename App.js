@@ -7,11 +7,21 @@
  */
 
 import React from 'react';
-import Header from './src/components/header'
+import './src/languageSupport/index';
+import Header from './src/components/header';
+// import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useTranslation, I18nextProvider } from 'react-i18next';
 
 const App = () => {
+
+  const { t, i18n } = useTranslation();
+
   return(
-    <Header/>
+    <I18nextProvider i18n={i18n}>
+      {/* <SafeAreaProvider> */}
+        <Header/>
+      {/* </SafeAreaProvider> */}
+    </I18nextProvider>
   ) 
 }
 

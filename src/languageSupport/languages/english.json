@@ -1,8 +1,9 @@
 {
-    "translation":{
         "Author":"Author",
         "Published at":"Published at",
-        "Theme":"Theme"
-    }
-
+        "Theme":"Theme", 
+        "News":"News", 
+        "Settings":"Settings", 
+        "Search":"Search", 
+        "Language":"Language"
 }
