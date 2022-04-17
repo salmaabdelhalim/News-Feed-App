@@ -20,8 +20,6 @@ const News = ({route}) => {
                     <Text style={{ color: colors.text, alignSelf:'center', margin:10 }}>{title}</Text>
                     <Text style={{ color: colors.text, alignSelf:'center', margin:10 }}>{content}</Text>
                     <Text style={{ color: colors.text, alignSelf:'center', margin:10 }}>{description}</Text>
-                    {/* <Text style={{ color: colors.text, alignSelf:'center', margin:5 }}>Author: {author}</Text>
-                    <Text style={{ color: colors.text, alignSelf:'center', margin:5 }}> Published at: {publishedAt}</Text> */}
                     <Text style={{ color: colors.text, alignSelf:'center', margin:5 }}>{t("Author")}: {author}</Text>
                     <Text style={{ color: colors.text, alignSelf:'center', margin:5 }}> {t("Published at")}: {publishedAt}</Text>
                 </View>

@@ -1,11 +1,10 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useContext } from 'react';
 import { View, Text, SafeAreaView, ActivityIndicator, Image, FlatList} from 'react-native';
 import { useNavigation, useTheme } from '@react-navigation/native';
 import SearchBar from "react-native-dynamic-search-bar";
 import {get} from '../axios/index'
 import { useTranslation } from 'react-i18next';
-
-let url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=d0d291e01edd417c8968b8c120d96a91'
+import langContext from '../languageSupport/context'
 
 const AllData = () =>  {
 
@@ -19,6 +18,9 @@ const AllData = () =>  {
   const {navigate} = useNavigation();
   const colors = useTheme().colors;
   let [t, i18n] = useTranslation();
+
+  const {lang} = useContext(langContext);
+  let url = `https://newsapi.org/v2/top-headlines?language=${lang}&apiKey=d0d291e01edd417c8968b8c120d96a91`
   
   const getData = useCallback(
     async function () {
@@ -56,7 +58,6 @@ const AllData = () =>  {
       setQuery(text);
     }
     else{
-      // setData(fullData);
       const filterData = data.filter((item) => item.title.toLowerCase().includes(text.toLowerCase()))
       setData(filterData);
       setQuery(text);
@@ -99,7 +100,7 @@ const AllData = () =>  {
         onRefresh={onRefresh}
       />}
   
-    </SafeAreaView> 
+    </SafeAreaView>
   );
 }
 

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { SafeAreaView, Text, View, TouchableOpacity, Button } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-// import i18n from '../languageSupport';
+import langContext from '../languageSupport/context'
 import { useTheme } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import ButtonToggleGroup from 'react-native-button-toggle-group';
@@ -10,6 +10,12 @@ const Settings = () => {
 
     const colors = useTheme().colors;
     let [t, i18n] = useTranslation();
+    let { lang, setLang } = useContext(langContext);
+
+    const changeLang = (val) => {
+        setLang(val);
+        i18n.changeLanguage(val);
+    }
     
     return(
         <View>
@@ -22,8 +28,7 @@ const Settings = () => {
                 inactiveBackgroundColor={'transparent'}
                 inactiveTextColor={'grey'}
                 values={['English', 'Deutsch']}
-                // value={value}
-                onSelect={(val) => {val == 'English' ? i18n.changeLanguage('en') : i18n.changeLanguage('gr')}}
+                onSelect={(val) => {changeLang(val.substring(0, 2).toLowerCase())}}
             />
 
             {/* <TouchableOpacity 

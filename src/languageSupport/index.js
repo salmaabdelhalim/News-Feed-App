@@ -9,7 +9,7 @@ let resources = {
     en:{
         translation: english
     },
-    gr:{
+    de:{
         translation: german
     }
 };
