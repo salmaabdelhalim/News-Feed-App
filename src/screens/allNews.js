@@ -84,7 +84,7 @@ const AllData = () =>  {
         renderItem={({item}) => 
           (<View>
             <Image
-                style={{ width: 60, height: 60, alignSelf:'center', margin:10 }}
+                style={{ width: 100, height: 100, alignSelf:'center', margin:10 }}
                 source={{uri: item.urlToImage}}
               />
             <Text 

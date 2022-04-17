@@ -14,7 +14,7 @@ const News = ({route}) => {
             <ScrollView>
                 <View>
                     <Image
-                        style={{ width: 100, height: 100, alignSelf:'center', margin:10 }}
+                        style={{ width: 250, height: 250, alignSelf:'center', margin:10 }}
                         source={{uri: urlImage}}
                     />
                     <Text style={{ color: colors.text, alignSelf:'center', margin:10 }}>{title}</Text>
